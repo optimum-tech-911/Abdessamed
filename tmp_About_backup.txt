@@ -1,0 +1,18 @@
+﻿export default function About(){
+  return (
+    <section className="section">
+      <div className="container-max grid md:grid-cols-2 gap-10 items-start">
+        <div className="card p-6">
+          <h1 className="text-3xl font-bold mb-4">About BrightSmile Dental</h1>
+          <p className="text-muted mb-3">
+            Weâ€™re a patientâ€‘first clinic focused on comfort, clarity, and clinical excellence. Our team blends years of experience with the latest tools to keep your smile healthy and confident.
+          </p>
+          <p className="text-muted">
+            From prevention to full-mouth rehabilitation, our treatment plans are personalized and transparent.
+          </p>
+        </div>
+        <img src="/src/assets/doctor.jpg" alt="Lead dentist" className="rounded-2xl shadow-soft" />
+      </div>
+    </section>
+  )
+}

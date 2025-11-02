@@ -1,0 +1,34 @@
+﻿export default function Footer(){
+  return (
+    <footer className="mt-20 border-t border-slate-800">
+      <div className="container-max py-10 grid md:grid-cols-3 gap-8">
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-white font-black">B</span>
+            <span className="font-bold">BrightSmile</span>
+          </div>
+          <p className="text-sm text-muted">Modern dentistry for every smile. Evidence-based care, gentle hands, and cuttingâ€‘edge tech.</p>
+        </div>
+        <div>
+          <h4 className="font-semibold mb-3">Contact</h4>
+          <ul className="space-y-1 text-sm">
+            <li>+33 1 23 45 67 89</li>
+            <li>hello@brightsmile.example</li>
+            <li>12 Rue du Sourire, 34000 Montpellier</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-semibold mb-3">Hours</h4>
+          <ul className="space-y-1 text-sm">
+            <li>Monâ€“Fri: 09:00â€“18:00</li>
+            <li>Sat: 10:00â€“14:00</li>
+            <li>Sun: Closed</li>
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-slate-800 py-4 text-center text-xs text-muted">
+        Â© {new Date().getFullYear()} BrightSmile Dental. All rights reserved.
+      </div>
+    </footer>
+  )
+}
