@@ -8,10 +8,10 @@ export default function CTA(){
         <h3 className="text-2xl font-bold mb-3">Prêt à aimer votre sourire ?</h3>
         <p className="text-muted mb-6">Prenez rendez-vous dès aujourd’hui et découvrez des soins modernes, à l’écoute.</p>
         {/* Desktop text CTA */}
-        <motion.a id="booking" href="mailto:contact@drabdessadok.fr" className="btn-primary hidden md:inline-flex" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>Prendre rendez‑vous</motion.a>
+        <motion.a id="booking" href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile" target="_blank" rel="noopener" className="btn-primary hidden md:inline-flex" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>Prendre rendez‑vous</motion.a>
         {/* Mobile calendar icon CTA */}
         <a
-          href="#booking"
+          href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile"
           aria-label="Prendre rendez‑vous"
           className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-slate-800 bg-surface hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-rolexGold"
         >
@@ -20,7 +20,7 @@ export default function CTA(){
           </svg>
         </a>
         <span className="mx-3 text-muted">ou</span>
-        <Link to="/contact" className="btn-outline">Contact</Link>
+        <Link to="/contact" className="btn-outline">Nous contacter</Link>
       </motion.div>
     </section>
   )

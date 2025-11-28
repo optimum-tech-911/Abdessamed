@@ -8,7 +8,7 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
-import logoUrl from './assets/logo.png'
+import logoUrl from './assets/new logo.png'
 
 // Ensure favicon uses the provided logo
 const ensureFavicon = () => {

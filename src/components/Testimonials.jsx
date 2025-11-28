@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
+import GoogleReviews from './GoogleReviews'
 
 const testimonials = [
-  { name: 'Emma L.', quote: 'The gentlest cleaning I have ever had. Beautiful clinic and kind staff!' },
-  { name: 'Marc D.', quote: 'They saved my tooth and my smile. 10/10 would recommend.' },
-  { name: 'Sofia P.', quote: 'Transparent pricing and top-notch technology. I felt cared for every step.' },
+  { name: 'Emma L.', quote: 'Le nettoyage le plus doux que j’aie jamais eu. Clinique magnifique et équipe bienveillante !' },
+  { name: 'Marc D.', quote: 'Ils ont sauvé ma dent et mon sourire. 10/10, je recommande.' },
+  { name: 'Sofia P.', quote: 'Tarifs transparents et technologie de pointe. Je me suis sentie accompagnée à chaque étape.' },
 ]
 
 export default function Testimonials(){
@@ -16,7 +17,7 @@ export default function Testimonials(){
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Happy patients
+          Témoignages
         </motion.h2>
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
@@ -35,6 +36,7 @@ export default function Testimonials(){
           ))}
         </div>
       </div>
+      <GoogleReviews />
     </section>
   )
 }

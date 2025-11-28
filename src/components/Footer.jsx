@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png'
+import logo from '../assets/new logo.png'
 
 export default function Footer(){
   return (
@@ -6,7 +6,7 @@ export default function Footer(){
       <div className="container-max py-10 grid md:grid-cols-3 gap-8">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src={logo} alt="Cabinet Dentaire logo" className="h-8 w-8 rounded-full object-cover" />
+            <img src={logo} alt="Logo du Cabinet Dentaire" className="h-8 w-8 rounded-full object-cover" />
             <span className="font-bold">Cabinet Dentaire Dr. Abdessadok</span>
           </div>
           <p className="text-sm text-muted">« Un sourire sain, une confiance retrouvée. »</p>

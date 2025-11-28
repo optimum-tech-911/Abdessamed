@@ -1,7 +1,7 @@
 import { NavLink, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/new logo.png'
 
 const NavItem = ({ to, children }) => (
   <NavLink
@@ -25,14 +25,14 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 backdrop-blur bg-rolexGreen/45 border-b border-slate-800">
       <div className="container-max flex items-center justify-between h-14 md:h-16">
         <Link to="/" className="flex items-center gap-2 min-w-0" onClick={closeMenu}>
-          <img src={logo} alt="Cabinet Dentaire logo" className="h-8 w-8 rounded-full object-cover" />
+          <img src={logo} alt="Logo du Cabinet Dentaire" className="h-8 w-8 rounded-full object-cover" />
           <span className="font-bold text-sm sm:text-base truncate">Dr. Abdessadok</span>
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
           <NavItem to="/">Accueil</NavItem>
-          <NavItem to="/about">A propos</NavItem>
+          <NavItem to="/about">À propos</NavItem>
           <NavItem to="/services">Services</NavItem>
           <NavItem to="/gallery">Galerie</NavItem>
           <NavItem to="/contact">Contact</NavItem>
@@ -41,7 +41,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           {/* Desktop calendar CTA */}
           <a
-            href="#booking"
+            href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile"
             aria-label="Prendre rendez-vous"
             className="hidden md:inline-flex items-center justify-center h-10 w-10 rounded-xl border border-slate-800 bg-surface hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-rolexGold"
           >
@@ -51,8 +51,8 @@ export default function Navbar() {
           </a>
           {/* Mobile calendar CTA */}
           <a
-            href="#booking"
-            aria-label="Prendre rendez�?'vous"
+            href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile"
+            aria-label="Prendre rendez‑vous"
             className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-slate-800 bg-surface hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-rolexGold"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-foreground">
@@ -61,13 +61,21 @@ export default function Navbar() {
           </a>
           {/* Mobile burger */}
           <button
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
             className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-slate-800 bg-surface hover:bg-slate-800/60 transition"
             onClick={() => setOpen((v) => !v)}
           >
-            <motion.span initial={false} animate={{ rotate: open ? 45 : 0, y: open ? 2 : 0 }} className="block h-0.5 w-5 bg-foreground" />
-            <motion.span initial={false} animate={{ opacity: open ? 0 : 1 }} className="block h-0.5 w-5 bg-foreground mt-1.5" />
-            <motion.span initial={false} animate={{ rotate: open ? -45 : 0, y: open ? -6 : 0 }} className="block h-0.5 w-5 bg-foreground mt-1.5" />
+            {!open ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-foreground">
+                <path d="M12 2c-3.5 0-6 2.8-6 6.2 0 2.1.5 4.2 1.4 6 .6 1.2 1.7 3.3 2.6 3.3.9 0 1.3-1.5 2-3 .7 1.5 1.1 3 2 3 .9 0 2-2.1 2.6-3.3.9-1.8 1.4-3.9 1.4-6C18 4.8 15.5 2 12 2z"/>
+              </svg>
+            ) : (
+              <motion.svg width="24" height="24" viewBox="0 0 24 24" className="text-foreground">
+                <motion.path d="M12 2c-3.5 0-6 2.8-6 6.2 0 2.1.5 4.2 1.4 6 .6 1.2 1.7 3.3 2.6 3.3.9 0 1.3-1.5 2-3 .7 1.5 1.1 3 2 3 .9 0 2-2.1 2.6-3.3.9-1.8 1.4-3.9 1.4-6C18 4.8 15.5 2 12 2z" fill="currentColor" initial={{ x: 0, rotate: 0 }} animate={{ x: -2, rotate: -3 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} />
+                <motion.path d="M12 2c-3.5 0-6 2.8-6 6.2 0 2.1.5 4.2 1.4 6 .6 1.2 1.7 3.3 2.6 3.3.9 0 1.3-1.5 2-3 .7 1.5 1.1 3 2 3 .9 0 2-2.1 2.6-3.3.9-1.8 1.4-3.9 1.4-6C18 4.8 15.5 2 12 2z" fill="currentColor" initial={{ x: 0, rotate: 0 }} animate={{ x: 2, rotate: 3 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} />
+                <motion.path d="M10 6l2 3-1 2 3-3-1-2 2-2" stroke="currentColor" stroke-width="1.5" fill="none" initial={{ opacity: 0 }} animate={{ opacity: 1 }} />
+              </motion.svg>
+            )}
           </button>
         </div>
       </div>
@@ -85,10 +93,29 @@ export default function Navbar() {
           >
             <nav className="container-max py-3 flex flex-col">
               <NavLink onClick={closeMenu} to="/" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-rolexGold border border-rolexGold/40 bg-rolexGold/10 backdrop-blur-sm' : 'hover:bg-rolexGold/10'}`}>Accueil</NavLink>
-              <NavLink onClick={closeMenu} to="/about" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-rolexGold border border-rolexGold/40 bg-rolexGold/10 backdrop-blur-sm' : 'hover:bg-rolexGold/10'}`}>A propos</NavLink>
+              <NavLink onClick={closeMenu} to="/about" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-rolexGold border border-rolexGold/40 bg-rolexGold/10 backdrop-blur-sm' : 'hover:bg-rolexGold/10'}`}>À propos</NavLink>
               <NavLink onClick={closeMenu} to="/services" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-rolexGold border border-rolexGold/40 bg-rolexGold/10 backdrop-blur-sm' : 'hover:bg-rolexGold/10'}`}>Services</NavLink>
               <NavLink onClick={closeMenu} to="/gallery" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-rolexGold border border-rolexGold/40 bg-rolexGold/10 backdrop-blur-sm' : 'hover:bg-rolexGold/10'}`}>Galerie</NavLink>
               <NavLink onClick={closeMenu} to="/contact" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-rolexGold border border-rolexGold/40 bg-rolexGold/10 backdrop-blur-sm' : 'hover:bg-rolexGold/10'}`}>Contact</NavLink>
+              <div className="mt-3 border-t border-slate-800 pt-3">
+                <div className="px-3 py-3 rounded-xl bg-rolexGreen/45 backdrop-blur border border-slate-800">
+                  <div className="font-semibold">Dr. Abdessamed Abdessadok</div>
+                  <a href={`tel:${import.meta.env.VITE_CLINIC_PHONE || '+33467000000'}`} className="text-sm text-muted block mt-1">
+                    {import.meta.env.VITE_CLINIC_PHONE || '04 67 00 00 00'}
+                  </a>
+                  <a
+                    href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile"
+                    target="_blank"
+                    rel="noopener"
+                    className="mt-2 inline-flex items-center gap-2 text-sm text-foreground"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-primary">
+                      <path d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1V3a1 1 0 0 1 1-1zm12 7H5v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9z"/>
+                    </svg>
+                    Doctolib
+                  </a>
+                </div>
+              </div>
             </nav>
           </motion.div>
         )}

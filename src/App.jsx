@@ -1,4 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Helmet } from 'react-helmet'
 import Navbar from './components/Navbar'
@@ -6,6 +7,9 @@ import Footer from './components/Footer'
 
 export default function App() {
   const location = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [location.pathname])
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Helmet>

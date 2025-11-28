@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import heroSmile from '../assets/logo.png'
+import heroSmile from "../assets/Logo ( hero section ).png"
 
 export default function Hero(){
   return (
@@ -18,10 +18,10 @@ export default function Hero(){
           <p className="text-muted mb-8 max-w-xl">« Un sourire sain, une confiance retrouvée. » Soins modernes, approche humaine, au cœur de Béziers.</p>
           <div className="flex flex-col sm:flex-row gap-3">
             {/* Desktop text CTA */}
-            <motion.a href="#booking" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="btn-primary hidden md:inline-flex">Prendre rendez‑vous</motion.a>
+            <motion.a href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile" target="_blank" rel="noopener" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="btn-primary hidden md:inline-flex">Prendre rendez‑vous</motion.a>
             {/* Mobile calendar icon CTA */}
             <a
-              href="#booking"
+              href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile"
               aria-label="Prendre rendez‑vous"
               className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-slate-800 bg-surface hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-rolexGold"
             >
@@ -33,7 +33,7 @@ export default function Hero(){
           </div>
         </div>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="card p-4">
-          <img src={heroSmile} alt="Cabinet Dentaire logo" className="rounded-2xl w-full h-auto object-contain bg-white/5" />
+          <img src={heroSmile} alt="Logo du Cabinet Dentaire" className="rounded-2xl w-full h-auto object-contain bg-white/5" />
         </motion.div>
       </div>
     </section>

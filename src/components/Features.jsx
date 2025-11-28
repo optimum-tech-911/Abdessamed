@@ -1,17 +1,17 @@
 import { motion } from 'framer-motion'
 
 const features = [
-  { title: 'Digital X‑Rays', desc: 'Low‑radiation imaging for precise, comfortable diagnostics.'},
-  { title: 'Intraoral Cameras', desc: 'See what we see — clear visuals for better decisions.'},
-  { title: 'Same‑day Crowns', desc: 'CAD/CAM technology for durable, beautiful restorations.'},
-  { title: 'Smart Anesthesia', desc: 'Gentle numbing techniques to keep you comfortable.'},
+  { title: 'Radiographies numériques', desc: 'Imagerie à faible radiation pour des diagnostics précis et confortables.'},
+  { title: 'Caméras intraorales', desc: 'Voyez ce que nous voyons — des visuels clairs pour de meilleures décisions.'},
+  { title: 'Couronnes en une journée', desc: 'Technologie CAD/CAM pour des restaurations durables et esthétiques.'},
+  { title: 'Anesthésie maîtrisée', desc: 'Techniques d’anesthésie douces pour votre confort.'},
 ]
 
 export default function Features(){
   return (
     <section className="section">
       <div className="container-max">
-        <h2 className="text-3xl font-bold mb-8">Why patients choose us</h2>
+        <h2 className="text-3xl font-bold mb-8">Pourquoi nos patients nous choisissent</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
             <motion.div
