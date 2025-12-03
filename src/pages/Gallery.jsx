@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useState as useState2 } from 'react'
 import { getGallery } from '../services/api'
+import { useTranslation } from 'react-i18next'
 import implant1 from '../assets/Implantologie & Chirurgie Orale galery 1.png'
 import implant2 from '../assets/Implantologie & Chirurgie Orale galery 2.png'
 import implant3 from '../assets/Implantologie & Chirurgie Orale.png'
@@ -14,6 +15,7 @@ import gen2 from '../assets/Soins généraux galery 2.png'
 import gen3 from '../assets/Soins généraux galery 3.png'
 
 function SectionCarousel({ title, badge, images }){
+  const { t } = useTranslation()
   const [idx, setIdx] = useState(0)
   const startX = useRef(null)
   const moved = useRef(false)
@@ -65,8 +67,8 @@ function SectionCarousel({ title, badge, images }){
             </div>
           ))}
         </div>
-        <button type="button" aria-label="Précédent" onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900/80 text-white rounded-full w-8 h-8 flex items-center justify-center">‹</button>
-        <button type="button" aria-label="Suivant" onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900/80 text-white rounded-full w-8 h-8 flex items-center justify-center">›</button>
+        <button type="button" aria-label={t('gallery.prev')} onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900/80 text-white rounded-full w-8 h-8 flex items-center justify-center">‹</button>
+        <button type="button" aria-label={t('gallery.next')} onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900/60 hover:bg-slate-900/80 text-white rounded-full w-8 h-8 flex items-center justify-center">›</button>
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
           {images.filter(Boolean).map((_, i) => (
             <span key={i} className={`w-2 h-2 rounded-full ${i === idx ? 'bg-rolexGold' : 'bg-slate-500'}`}></span>
@@ -78,6 +80,7 @@ function SectionCarousel({ title, badge, images }){
 }
 
 export default function Gallery(){
+  const { t } = useTranslation()
   const { hash } = useLocation()
   const [dynamic, setDynamic] = useState2(null)
   useEffect(() => {
@@ -99,26 +102,26 @@ export default function Gallery(){
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
         >
-          Galerie
+          {t('gallery.title')}
         </motion.h1>
 
         <div id="implant">
           <SectionCarousel
-            title="Implantologie & Chirurgie Orale"
+            title={t('gallery.implant')}
             images={dynamic?.implant?.map((i) => i.url) || [implant1, implant2, implant3]}
           />
         </div>
 
         <div id="invisalign">
           <SectionCarousel
-            title="Invisalign® - L'Orthodontie Invisible"
-            badge="Certifié Platinum Provider"
+            title={t('gallery.invisalign')}
+            badge={t('gallery.badge')}
             images={dynamic?.invisalign?.map((i) => i.url) || [invis1, invis2, invis3]}
           />
         </div>
 
         <SectionCarousel
-          title="Soins généraux"
+          title={t('gallery.general')}
           images={dynamic?.general?.map((i) => i.url) || [gen1, gen2, gen3]}
         />
       </div>

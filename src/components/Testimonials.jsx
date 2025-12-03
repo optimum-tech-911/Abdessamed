@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import GoogleReviews from './GoogleReviews'
 
-const testimonials = [
-  { name: 'Emma L.', quote: 'Le nettoyage le plus doux que j’aie jamais eu. Clinique magnifique et équipe bienveillante !' },
-  { name: 'Marc D.', quote: 'Ils ont sauvé ma dent et mon sourire. 10/10, je recommande.' },
-  { name: 'Sofia P.', quote: 'Tarifs transparents et technologie de pointe. Je me suis sentie accompagnée à chaque étape.' },
-]
+const names = ['Emma L.', 'Marc D.', 'Sofia P.']
 
 export default function Testimonials(){
+  const { t } = useTranslation()
+  const quotes = t('testimonials.items', { returnObjects: true })
   return (
     <section className="section">
       <div className="container-max">
@@ -17,10 +16,10 @@ export default function Testimonials(){
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Témoignages
+          {t('testimonials.title')}
         </motion.h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
+          {quotes.map((q, i) => (
             <motion.div
               key={i}
               className="card p-6"
@@ -30,8 +29,8 @@ export default function Testimonials(){
               transition={{ delay: i * 0.05 }}
               whileHover={{ y: -3, scale: 1.005 }}
             >
-              <p className="italic mb-4">“{t.quote}”</p>
-              <div className="text-sm text-muted">— {t.name}</div>
+              <p className="italic mb-4">“{q}”</p>
+              <div className="text-sm text-muted">— {names[i] || 'Client'}</div>
             </motion.div>
           ))}
         </div>
@@ -40,4 +39,3 @@ export default function Testimonials(){
     </section>
   )
 }
-

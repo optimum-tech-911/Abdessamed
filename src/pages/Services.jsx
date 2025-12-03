@@ -8,9 +8,11 @@ import alignerIcon from "../assets/nvisalign® - L'Orthodontie Invisible icon.pn
 const doctolibBooking = 'https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile'
 
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getServices } from '../services/api'
 
 export default function Services(){
+  const { t } = useTranslation()
   const [showInvisalignPortal, setShowInvisalignPortal] = useState(false)
   return (
     <section className="section">
@@ -20,8 +22,8 @@ export default function Services(){
           <meta name="description" content="Expertise en chirurgie implantaire (Made in France) et alignement dentaire invisible. Solutions esthétiques et durables à Sète." />
         </Helmet>
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h1 className="text-3xl md:text-4xl font-extrabold mb-2">Nos Expertises & Soins</h1>
-          <p className="text-muted">Une approche globale : de la prévention à la réhabilitation du sourire.</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-2">{t('servicesPage.title')}</h1>
+          <p className="text-muted">{t('servicesPage.subtitle')}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -29,17 +31,17 @@ export default function Services(){
           <motion.div className="rounded-2xl border border-slate-800 bg-surface/60 backdrop-blur p-6 shadow-soft" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-2">
               <img src={implantIcon} alt="Icone Implantologie" className="h-10 w-10 rounded-md object-cover" />
-              <h2 className="text-2xl md:text-3xl font-bold">Implantologie & Chirurgie Orale</h2>
+              <h2 className="text-2xl md:text-3xl font-bold">{t('servicesPage.implantTitle')}</h2>
             </div>
-            <span className="badge mt-3 mb-4">BioTech Dental - Made in France</span>
-            <p className="text-sm text-muted mb-4">Remplacer une dent manquante est essentiel pour votre santé et votre esthétique. Nous avons choisi l'excellence française avec les implants BioTech Dental.</p>
+            <span className="badge mt-3 mb-4">{t('servicesPage.implantBadge')}</span>
+            <p className="text-sm text-muted mb-4">{t('servicesPage.implantDesc')}</p>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-start gap-2"><span className="text-primary">✔</span><span><strong>Origine Certifiée :</strong> Implants conçus et fabriqués en France (Haute-Savoie).</span></li>
-              <li className="flex items-start gap-2"><span className="text-primary">✔</span><span><strong>Traçabilité & Garantie :</strong> Chaque implant possède un passeport unique et une garantie mécanique à vie.</span></li>
-              <li className="flex items-start gap-2"><span className="text-primary">✔</span><span><strong>Biocompatibilité :</strong> Titane de grade médical ou Zircone pour une intégration osseuse parfaite.</span></li>
+              {t('servicesPage.implantBullets', { returnObjects: true }).map((b, i) => (
+                <li key={i} className="flex items-start gap-2"><span className="text-primary">✔</span><span><strong>{b.title} :</strong> {b.text}</span></li>
+              ))}
             </ul>
             <div className="mt-6">
-              <a href={doctolibBooking} target="_blank" rel="noopener" className="btn-primary">Prendre RDV Implant</a>
+              <a href={doctolibBooking} target="_blank" rel="noopener" className="btn-primary">{t('servicesPage.bookImplant')}</a>
             </div>
           </motion.div>
         </div>
@@ -48,20 +50,20 @@ export default function Services(){
           <motion.div className="rounded-2xl border border-slate-800 bg-surface/60 backdrop-blur p-6 shadow-soft order-2 md:order-1" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="flex items-center gap-3 mb-2">
               <img src={alignerIcon} alt="Icone Invisalign" className="h-10 w-10 rounded-md object-cover" />
-              <h2 className="text-2xl md:text-3xl font-bold">Invisalign® - L'Orthodontie Invisible</h2>
+              <h2 className="text-2xl md:text-3xl font-bold">{t('servicesPage.invisalignTitle')}</h2>
             </div>
-            <span className="badge mt-3 mb-4">Certifié Platinum Provider</span>
-            <p className="text-sm text-muted mb-4">Réalignez vos dents sans l'inconfort des bagues métalliques. Une solution transparente, amovible et sur-mesure.</p>
+            <span className="badge mt-3 mb-4">{t('servicesPage.invisalignBadge')}</span>
+            <p className="text-sm text-muted mb-4">{t('servicesPage.invisalignDesc')}</p>
           <ul className="space-y-2 text-sm">
-            <li className="flex items-start gap-2"><span className="text-primary">✔</span><span><strong>Discrétion Totale :</strong> Aligneurs quasi-invisibles.</span></li>
-            <li className="flex items-start gap-2"><span className="text-primary">✔</span><span><strong>Visualisation 3D :</strong> Grâce au scanner iTero, découvrez votre futur sourire avant même de commencer le traitement.</span></li>
-            <li className="flex items-start gap-2"><span className="text-primary">✔</span><span><strong>Confort :</strong> Pas d'irritation, pas d'interdit alimentaire (amovible pour manger).</span></li>
+            {t('servicesPage.invisalignBullets', { returnObjects: true }).map((b, i) => (
+              <li key={i} className="flex items-start gap-2"><span className="text-primary">✔</span><span><strong>{b.title} :</strong> {b.text}</span></li>
+            ))}
           </ul>
             <div className="mt-6">
-              <a href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/availabilities?specialityId=1&telehealth=false&placeId=practice-518332&motiveCategoryIds%5B%5D=492540&motiveIds%5B%5D=15059876&bookingFunnelSource=deep_link" target="_blank" rel="noopener" className="btn-primary">Prendre RDV Invisalign</a>
+              <a href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/availabilities?specialityId=1&telehealth=false&placeId=practice-518332&motiveCategoryIds%5B%5D=492540&motiveIds%5B%5D=15059876&bookingFunnelSource=deep_link" target="_blank" rel="noopener" className="btn-primary">{t('servicesPage.bookInvisalign')}</a>
             </div>
           <div className="mt-4 space-y-3">
-            <button type="button" className="btn-primary" onClick={() => setShowInvisalignPortal((v) => !v)}>{showInvisalignPortal ? 'Masquer dans la page' : 'Prenez votre selfie'}</button>
+            <button type="button" className="btn-primary" onClick={() => setShowInvisalignPortal((v) => !v)}>{showInvisalignPortal ? t('buttons.hideInPage') : t('buttons.selfie')}</button>
             {showInvisalignPortal && (
               <div className="rounded-2xl border border-slate-800 bg-surface/60 backdrop-blur overflow-hidden">
                 <iframe
@@ -78,7 +80,7 @@ export default function Services(){
         </div>
 
         <div>
-          <h3 className="text-xl font-bold mb-4">Soins généraux</h3>
+          <h3 className="text-xl font-bold mb-4">{t('servicesPage.generalTitle')}</h3>
           <ServicesGrid />
         </div>
       </div>
@@ -89,12 +91,8 @@ export default function Services(){
 function ServicesGrid(){
   const [items, setItems] = useState(null)
   useEffect(() => { getServices().then(setItems).catch(() => setItems(null)) }, [])
-  const fallback = [
-    { title: 'Soins Conservateurs', description: "Traitement des caries, dévitalisation (endodontie) et composites esthétiques." },
-    { title: 'Esthétique du Sourire', description: 'Facettes céramiques et Blanchiment dentaire (éclaircissement).' },
-    { title: 'Prophylaxie & Prévention', description: "Détartrage, polissage et conseils d'hygiène bucco-dentaire." },
-    { title: 'Urgences Dentaires', description: 'Prise en charge rapide des douleurs aiguës et infections.' },
-  ]
+  const { t } = useTranslation()
+  const fallback = t('servicesPage.generalItems', { returnObjects: true })
   const data = items && items.length ? items : fallback
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { getArticle } from '../services/api'
+import { useTranslation } from 'react-i18next'
 
 export default function Article(){
+  const { t } = useTranslation()
   const { id } = useParams()
   const [item, setItem] = useState(null)
   useEffect(() => { getArticle(id).then(setItem).catch(() => setItem(null)) }, [id])
   if (!item) return (
-    <section className="section"><div className="container-max">Chargement…</div></section>
+    <section className="section"><div className="container-max">{t('article.loading')}</div></section>
   )
   return (
     <section className="section">

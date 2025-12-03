@@ -9,8 +9,10 @@ import { Link } from 'react-router-dom'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import CTA from '../components/CTA'
+import { useTranslation } from 'react-i18next'
 
 export default function Home(){
+  const { t } = useTranslation()
   const [showInvisalignPortal, setShowInvisalignPortal] = useState(false)
   return (
     <>
@@ -27,11 +29,11 @@ export default function Home(){
               <div className="flex items-center gap-3 mb-4">
                 <img src={implantIcon} alt="Icone Implantologie" className="h-10 w-10 rounded-md object-cover" />
                 <h2 className="text-xl md:text-2xl font-bold">
-                  <span className="md:whitespace-nowrap">Implantologie BioTech</span>
-                  <span className="block text-sm md:text-base opacity-90">(Made in France)</span>
+                  <span className="md:whitespace-nowrap">{t('sections.implant.title')}</span>
+                  <span className="block text-sm md:text-base opacity-90">{t('sections.implant.madeInFrance')}</span>
                 </h2>
               </div>
-              <p className="text-sm md:text-base text-muted mb-4">Retrouvez le confort et l'esthétique de votre sourire. Implants conçus et fabriqués en France avec une garantie certifiée et une traçabilité complète.</p>
+              <p className="text-sm md:text-base text-muted mb-4">{t('sections.implant.desc')}</p>
               <img src={implantImg} alt="Implantologie BioTech" className="rounded-xl shadow-soft w-full h-auto object-cover mb-6" />
               <div className="flex flex-col md:flex-row md:flex-wrap md:items-start gap-3">
                 <a
@@ -55,10 +57,10 @@ export default function Home(){
                   }}
                   className="btn-primary min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl"
                 >
-                  Réserver Bilan Implant
+                  {t('buttons.reserveImplant')}
                 </a>
-                <Link to="/gallery#implant" className="btn-outline min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl">Voir la galerie</Link>
-                <Link to="/services" className="btn-outline min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl">En savoir plus</Link>
+                <Link to="/gallery#implant" className="btn-outline min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl">{t('buttons.gallery')}</Link>
+                <Link to="/services" className="btn-outline min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl">{t('buttons.learn')}</Link>
               </div>
             </div>
           </div>
@@ -66,37 +68,22 @@ export default function Home(){
             <div className="p-6 md:p-8 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-4">
                 <img src={alignerIcon} alt="Icone Invisalign" className="h-10 w-10 rounded-md object-cover" />
-                <h2 className="text-xl md:text-2xl font-bold md:whitespace-nowrap">Orthodontie Invisible Invisalign®</h2>
+                <h2 className="text-xl md:text-2xl font-bold md:whitespace-nowrap">{t('sections.invisalign.title')}</h2>
               </div>
-              <p className="text-sm md:text-base text-muted mb-4">Alignement dentaire discret par gouttières transparentes. Visualisez votre futur sourire grâce à notre planification numérique. Résultat garanti.</p>
+              <p className="text-sm md:text-base text-muted mb-4">{t('sections.invisalign.desc')}</p>
               <img src={alignerImg} alt="Orthodontie Invisible Invisalign" className="rounded-xl shadow-soft w-full h-auto object-cover mb-6" />
               <div className="flex flex-col md:flex-row md:flex-wrap md:items-start gap-3">
                 <a
                   href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/availabilities?specialityId=1&telehealth=false&placeId=practice-518332&motiveCategoryIds%5B%5D=492540&motiveIds%5B%5D=15059876&bookingFunnelSource=deep_link"
                   aria-label="Réserver Bilan Invisalign"
                   rel="noopener"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
-                    const isAndroid = /Android/.test(navigator.userAgent)
-                    const iosLink = 'doctolib://booking/invisalign'
-                    const androidIntent = 'intent://booking/invisalign#Intent;scheme=doctolib;package=fr.doctolib.www;S.browser_fallback_url=https%3A%2F%2Fwww.doctolib.fr%2F;end'
-                    if (isIOS) {
-                      window.location.href = iosLink
-                      setTimeout(() => { window.location.href = e.currentTarget.href }, 1200)
-                    } else if (isAndroid) {
-                      window.location.href = androidIntent
-                    } else {
-                      window.location.href = e.currentTarget.href
-                    }
-                  }}
                   className="btn-primary min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl"
                 >
-                  Réserver Bilan Invisalign
+                  {t('buttons.reserveInvisalign')}
                 </a>
-                <Link to="/gallery#invisalign" className="btn-outline min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl">Voir la galerie</Link>
-                <Link to="/services" className="btn-outline min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl">En savoir plus</Link>
-                <button type="button" className="btn-primary min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl" onClick={() => setShowInvisalignPortal((v) => !v)}>{showInvisalignPortal ? 'Masquer dans la page' : 'Prenez votre selfie'}</button>
+                <Link to="/gallery#invisalign" className="btn-outline min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl">{t('buttons.gallery')}</Link>
+                <Link to="/services" className="btn-outline min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl">{t('buttons.learn')}</Link>
+                <button type="button" className="btn-primary min-w-[200px] md:min-w-0 h-11 whitespace-nowrap rounded-2xl" onClick={() => setShowInvisalignPortal((v) => !v)}>{showInvisalignPortal ? t('buttons.hideInPage') : t('buttons.selfie')}</button>
               </div>
               {showInvisalignPortal && (
                 <div className="mt-4 rounded-2xl border border-slate-800 bg-surface/60 backdrop-blur overflow-hidden">

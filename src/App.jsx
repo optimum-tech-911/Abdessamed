@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import logoUrl from './assets/new logo.png'
 import Navbar from './components/Navbar'
+import './i18n/index.js'
 import Footer from './components/Footer'
 
 export default function App() {

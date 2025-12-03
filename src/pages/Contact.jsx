@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { submitMessage } from '../services/api'
+import { useTranslation } from 'react-i18next'
 
 export default function Contact(){
+  const { t } = useTranslation()
   const [openIndex, setOpenIndex] = useState(null)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -12,11 +14,11 @@ export default function Contact(){
   const [status, setStatus] = useState('')
   const faqData = [
     {
-      question: "Quelle est l'adresse du Dr Abdessamed ABDESSADOK ?",
-      answer: "L'adresse du cabinet est : 10 Boulevard Danièle Casanova, 34200 Sète. Le cabinet est situé au Rez-de-chaussée."
+      question: t('about.faq.items.0.question'),
+      answer: t('about.faq.items.0.answer')
     },
     {
-      question: "Quels sont les horaires d'ouverture ?",
+      question: t('about.faq.items.1.question'),
       answer: (
         <ul className="list-none space-y-1">
           <li><strong>Lundi :</strong> 08h00 - 12h00, 14h00 - 17h00</li>
@@ -28,16 +30,16 @@ export default function Contact(){
       )
     },
     {
-      question: "Quels sont les moyens de paiement acceptés ?",
-      answer: "Le Dr Abdessamed ABDESSADOK accepte les moyens de paiements suivants : Chèques, espèces et carte bancaire."
+      question: t('about.faq.items.2.question'),
+      answer: t('about.faq.items.2.answer')
     },
     {
-      question: "Est-ce que le cabinet accepte la carte Vitale ?",
-      answer: "Oui, le Dr Abdessamed ABDESSADOK accepte la carte Vitale."
+      question: t('about.faq.items.3.question'),
+      answer: t('about.faq.items.3.answer')
     },
     {
-      question: "Le cabinet accepte-t-il les nouveaux patients ?",
-      answer: "Oui, le cabinet accueille les nouveaux patients pour tous types de soins (Consultations, Urgences, Implantologie, Invisalign)."
+      question: t('about.faq.items.4.question'),
+      answer: t('about.faq.items.4.answer')
     }
   ]
   return (
@@ -66,18 +68,18 @@ export default function Contact(){
             setStatus('Erreur lors de l’envoi')
           }
         }}>
-          <h1 className="text-3xl font-bold">Contact</h1>
-          <input className="w-full rounded-xl bg-surface border border-slate-700 px-4 py-3" placeholder="Nom" value={name} onChange={(e) => setName(e.target.value)} />
-          <input type="email" className="w-full rounded-xl bg-surface border border-slate-700 px-4 py-3" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <input className="w-full rounded-xl bg-surface border border-slate-700 px-4 py-3" placeholder="Téléphone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-          <textarea className="w-full rounded-xl bg-surface border border-slate-700 px-4 py-3 h-32" placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+          <h1 className="text-3xl font-bold">{t('contact.title')}</h1>
+          <input className="w-full rounded-xl bg-surface border border-slate-700 px-4 py-3" placeholder={t('contact.placeholders.name')} value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="email" className="w-full rounded-xl bg-surface border border-slate-700 px-4 py-3" placeholder={t('contact.placeholders.email')} value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input className="w-full rounded-xl bg-surface border border-slate-700 px-4 py-3" placeholder={t('contact.placeholders.phone')} value={phone} onChange={(e) => setPhone(e.target.value)} />
+          <textarea className="w-full rounded-xl bg-surface border border-slate-700 px-4 py-3 h-32" placeholder={t('contact.placeholders.message')} value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
           <div className="flex items-center gap-3">
-            <button type="submit" className="btn-primary">Envoyer</button>
-            {status && <span className="text-sm text-muted">{status}</span>}
+            <button type="submit" className="btn-primary">{t('contact.submit')}</button>
+            {status && <span className="text-sm text-muted">{status === 'Message envoyé' ? t('contact.status.sent') : t('contact.status.error')}</span>}
           </div>
         </form>
         <div className="card p-6">
-          <h2 className="text-xl font-semibold mb-3">Nous trouver</h2>
+          <h2 className="text-xl font-semibold mb-3">{t('contact.findUs')}</h2>
           <p className="text-muted mb-4">{import.meta.env.VITE_CLINIC_ADDRESS || 'RDC, 10 Bd Danièle Casanova, 34200 Sète, France'}</p>
           <div className="aspect-video rounded-2xl overflow-hidden border border-slate-800">
             <iframe
@@ -88,14 +90,14 @@ export default function Contact(){
             ></iframe>
           </div>
           <div className="mt-3">
-            <a href={(import.meta.env.VITE_GOOGLE_MAPS_LINK || 'https://maps.app.goo.gl/UALfaQYvaAV5otoq9')} target="_blank" rel="noopener" className="btn-outline">Voir sur Google Maps</a>
+            <a href={(import.meta.env.VITE_GOOGLE_MAPS_LINK || 'https://maps.app.goo.gl/UALfaQYvaAV5otoq9')} target="_blank" rel="noopener" className="btn-outline">{t('contact.viewOnMaps')}</a>
           </div>
         </div>
       </div>
 
       <div className="container-max mt-10">
         <div className="rounded-2xl border border-slate-800 bg-surface/60 backdrop-blur shadow-soft p-6">
-          <h2 className="text-2xl font-bold mb-4">Questions fréquentes</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('contact.faq.title')}</h2>
           <div className="space-y-3">
             {faqData.map((item, idx) => (
               <div key={idx} className="rounded-xl border border-slate-700 bg-slate-800/50">
