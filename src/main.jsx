@@ -13,6 +13,7 @@ import Admin from './pages/Admin'
 import Actualities from './pages/Actualities'
 import Article from './pages/Article'
 import ActualitiesAdmin from './pages/ActualitiesAdmin'
+import Login from './pages/Login'
 import logoUrl from './assets/new logo.png'
 
 // Ensure favicon uses the provided logo
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       { path: 'contact', element: <Contact /> },
       { path: 'actualities', element: <Actualities /> },
       { path: 'actualities/:id', element: <Article /> },
+      { path: 'login', element: <Login /> },
     ]
   },
   { path: '/admin', element: <Admin /> },

@@ -1,9 +1,9 @@
 import Hero from '../components/Hero'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import implantImg from "../assets/Implantologie & Chirurgie Orale.png"
+import implantImg from "../assets/Gemini_Generated_Image_1nvugv1nvugv1nvu.png"
 import alignerImg from "../assets/nvisalign® - L'Orthodontie Invisible.png"
-import implantIcon from "../assets/Implantologie & Chirurgie Orale icon.png"
+import implantIcon from "../assets/new logo.png"
 import alignerIcon from "../assets/nvisalign® - L'Orthodontie Invisible icon.png"
 import { Link } from 'react-router-dom'
 import Features from '../components/Features'

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
-import implantImg from "../assets/Implantologie & Chirurgie Orale.png"
+import implantImg from "../assets/Gemini_Generated_Image_3b45m3b45m3b45m3.png"
 import alignerImg from "../assets/nvisalign® - L'Orthodontie Invisible.png"
-import implantIcon from "../assets/Implantologie & Chirurgie Orale icon.png"
+import implantIcon from "../assets/new logo.png"
 import alignerIcon from "../assets/nvisalign® - L'Orthodontie Invisible icon.png"
 
 const doctolibBooking = 'https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile'

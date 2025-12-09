@@ -44,6 +44,13 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <Link
+            to="/login"
+            className="hidden md:inline-flex items-center justify-center h-10 px-3 rounded-xl border border-rolexGreen/40 bg-rolexGreen/45 hover:bg-rolexGreen/60 text-sm focus:outline-none focus:ring-2 focus:ring-rolexGreen/40"
+            onClick={closeMenu}
+          >
+            Se connecter
+          </Link>
           {/* Desktop calendar CTA */}
           <a
             href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile"
@@ -118,15 +125,16 @@ export default function Navbar() {
             <nav className="container-max py-3 flex flex-col">
               <NavLink onClick={closeMenu} to="/" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.home')}</NavLink>
               <NavLink onClick={closeMenu} to="/about" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.about')}</NavLink>
-              <NavLink onClick={closeMenu} to="/services" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.services')}</NavLink>
-              <NavLink onClick={closeMenu} to="/actualities" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.actualities')}</NavLink>
-              <NavLink onClick={closeMenu} to="/gallery" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.gallery')}</NavLink>
-              <NavLink onClick={closeMenu} to="/contact" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.contact')}</NavLink>
-              <div className="mt-3 border-t border-slate-800 pt-3">
-                <div className="px-3 py-3 rounded-xl bg-rolexGreen/45 backdrop-blur border border-slate-800">
-                  <div className="font-semibold">Dr. Abdessamed Abdessadok</div>
-                  <a href={`tel:${import.meta.env.VITE_CLINIC_PHONE || '+33467000000'}`} className="text-sm text-muted block mt-1">
-                    {import.meta.env.VITE_CLINIC_PHONE || '04 67 00 00 00'}
+            <NavLink onClick={closeMenu} to="/services" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.services')}</NavLink>
+            <NavLink onClick={closeMenu} to="/actualities" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.actualities')}</NavLink>
+            <NavLink onClick={closeMenu} to="/gallery" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.gallery')}</NavLink>
+            <NavLink onClick={closeMenu} to="/contact" className={({ isActive }) => `px-3 py-3 rounded-xl transition ${isActive ? 'text-foreground border border-rolexGreen/40 bg-rolexGreen/45 backdrop-blur-sm' : 'hover:bg-rolexGreen/10'}`}>{t('nav.contact')}</NavLink>
+            <Link onClick={closeMenu} to="/login" className="px-3 py-3 rounded-xl text-left hover:bg-rolexGreen/10">Se connecter</Link>
+            <div className="mt-3 border-t border-slate-800 pt-3">
+              <div className="px-3 py-3 rounded-xl bg-rolexGreen/45 backdrop-blur border border-slate-800">
+                <div className="font-semibold">Dr. Abdessamed Abdessadok</div>
+                <a href={`tel:${import.meta.env.VITE_CLINIC_PHONE || '+33467000000'}`} className="text-sm text-muted block mt-1">
+                  {import.meta.env.VITE_CLINIC_PHONE || '04 67 00 00 00'}
                   </a>
                   <a
                     href="https://www.doctolib.fr/dentiste/sete/abdessamed-abdessadok-levallois-perret/booking/motives?specialityId=1&telehealth=false&placeId=practice-518332&bookingFunnelSource=profile"

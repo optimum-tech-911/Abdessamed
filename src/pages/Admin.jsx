@@ -63,6 +63,39 @@ function Login({ onLogin }) {
 export default function Admin(){
   const [tab, setTab] = useState('services')
   const [open, setOpen] = useState(true)
+  const useSupabase = import.meta.env.VITE_USE_SUPABASE === 'true'
+  const [user, setUser] = useState(null)
+  const [authLoading, setAuthLoading] = useState(true)
+
+  useEffect(() => {
+    getUser().then((u) => setUser(u)).finally(() => setAuthLoading(false))
+  }, [])
+
+  const handleLogin = async (email, password) => {
+    const res = await loginAdmin(email, password)
+    if (res?.token) {
+      const u = useSupabase ? await getUser() : { email }
+      setUser(u)
+    } else {
+      throw new Error(res?.error || 'Login failed')
+    }
+  }
+
+  const handleLogout = async () => {
+    await signOut()
+    localStorage.removeItem('admin_token')
+    setUser(null)
+  }
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
+        <div className="text-sm text-muted">Checking session...</div>
+      </div>
+    )
+  }
+
+  if (!user) return <Login onLogin={handleLogin} />
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
@@ -90,9 +123,14 @@ export default function Admin(){
                 <img src={logo} alt="Logo" className="h-8 w-8 rounded-full object-cover" />
                 <div className="font-semibold">Admin</div>
               </div>
-              <button type="button" className="inline-flex items-center justify-center h-9 w-9 rounded-xl border border-slate-800 bg-surface hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-rolexGold" onClick={() => setOpen(false)}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-foreground"><path d="M6 12h12v2H6z"/></svg>
-              </button>
+              <div className="flex items-center gap-2">
+                <button type="button" className="inline-flex items-center justify-center h-9 w-9 rounded-xl border border-slate-800 bg-surface hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-rolexGold" onClick={() => setOpen(false)}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-foreground"><path d="M6 12h12v2H6z"/></svg>
+                </button>
+                <button type="button" className="inline-flex items-center justify-center h-9 px-3 rounded-xl border border-slate-800 bg-surface hover:bg-slate-800/60 text-sm focus:outline-none focus:ring-2 focus:ring-rolexGold" onClick={handleLogout}>
+                  Déconnexion
+                </button>
+              </div>
             </div>
             <div className="p-4 md:p-6">
               <nav className="space-y-2">
