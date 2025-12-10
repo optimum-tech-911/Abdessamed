@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
-const useSupabase = import.meta.env.VITE_USE_SUPABASE === 'true'
+const useSupabase = true // Hardcoded to ensure Supabase is used
 
 export const supabase = useSupabase && supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null
 

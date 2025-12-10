@@ -64,7 +64,10 @@ export async function getMessages() {
 }
 
 export async function submitMessage(payload) {
-  if (useSupabase) return supabaseApi.createMessage(payload)
+  if (useSupabase) {
+    if (!supabase) throw new Error('Supabase not configured')
+    return supabaseApi.createMessage(payload)
+  }
   const r = await fetch(`${API_BASE}/api/messages`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
   return r.json()
 }
