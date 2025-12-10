@@ -40,9 +40,10 @@ const tokens = new Set()
 const requireAuth = (req, res, next) => { next() }
 
 app.post('/api/auth/login', (req, res) => {
-  const { password } = req.body || {}
-  const expected = process.env.ADMIN_PASSWORD || 'admin'
-  if (password !== expected) return res.status(401).json({ error: 'invalid' })
+  const { email, password } = req.body || {}
+  const expectedEmail = process.env.ADMIN_EMAIL || 'admin@example.com'
+  const expectedPassword = process.env.ADMIN_PASSWORD || 'admin'
+  if (email !== expectedEmail || password !== expectedPassword) return res.status(401).json({ error: 'invalid' })
   const token = uuidv4()
   tokens.add(token)
   res.json({ token })
