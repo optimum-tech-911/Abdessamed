@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import heroSmile from "../assets/Logo ( hero section ).png"
+import heroVideo from "../assets/video/Cinematic_Motion_Logo_Sequence_Creation.mp4"
 
 export default function Hero(){
   const { t } = useTranslation()
@@ -34,8 +34,15 @@ export default function Hero(){
             <Link to="/services" className="btn-outline">{t('hero.seeServices')}</Link>
           </div>
         </div>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="card p-4">
-          <img src={heroSmile} alt="Logo du Cabinet Dentaire" className="rounded-2xl w-full h-auto object-contain bg-white/5" />
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="card p-2 overflow-hidden">
+          <video
+            src={heroVideo}
+            className="w-full h-full rounded-2xl object-cover bg-white/5"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
         </motion.div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import doctorImg from '../assets/dantist.png'
 import alignTechLogo from "../assets/Align logo.png"
 import invisalignLogo from "../assets/Invisalign_logo.png"
 import iteroLogo from "../assets/iTero logo.jpeg"
+import clinicVideo from "../assets/video/Cinematic_Motion_Logo_Sequence_Creation.mp4"
 
 export default function About(){
   const { t } = useTranslation()
@@ -130,6 +131,16 @@ export default function About(){
             <img src={alignTechLogo} alt="Align Technology" className="h-8 w-auto object-contain" />
             <img src={iteroLogo} alt="iTero" className="h-8 w-auto object-contain" />
           </div>
+        </div>
+        <div className="rounded-2xl border border-slate-800 bg-surface/60 backdrop-blur shadow-soft overflow-hidden">
+          <video
+            src={clinicVideo}
+            className="w-full h-full max-h-[520px] object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
         </div>
 
         <div className="rounded-2xl border border-slate-800 bg-surface/60 backdrop-blur shadow-soft p-6">
